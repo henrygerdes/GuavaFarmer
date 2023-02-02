@@ -14,8 +14,7 @@ Imports:
   foreach, 
   tidyverse, 
   readxl, 
-  ggplot2,
-  PharmacoGX
+  ggplot2
 RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
