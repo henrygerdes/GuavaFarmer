@@ -1,0 +1,21 @@
+Package: GuavaFarmer
+Type: Package
+Title: Processes and visualises drug response screening data generated from 96well plates
+Version: 0.1.5
+Author: Henry Gerders
+Maintainer: Henry Gerdes <h.gerdes@qmul.ac.uk>
+Description:analyses Guavacyte data and any other 96 well format data.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  flowCore, 
+  doParallel, 
+  foreach, 
+  tidyverse, 
+  readxl, 
+  ggplot2,
+  PharmacoGX
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
