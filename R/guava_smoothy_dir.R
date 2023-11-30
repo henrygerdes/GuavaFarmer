@@ -12,11 +12,11 @@ GuavaSmoothy_dir <- function(labels, Folder, easyfit = FALSE){
   require(dplyr)
   require(foreach)
 
-  if(easyfit == TRUE){
-    inp_cols <- c("Viable.13", "Viable.14", "Dead.13", "Sample.ID")
-  }else{
-    inp_cols <- c("Viable.2", "Viable.1", "Dead.2", "Sample.ID")
-  }
+    if(easyfit == TRUE){
+      inp_cols <- c(77, 84, 78, 2)
+    }else{
+      inp_cols <- c(12, 9, 14, 2)
+    }
 
   names(labels) <- paste(names(labels), ".VIA.CSV", sep = "")
 
@@ -28,7 +28,7 @@ GuavaSmoothy_dir <- function(labels, Folder, easyfit = FALSE){
 
   label <- labels[[i]]
 
-  data <- read.csv(paste(Folder, i, sep = "/"), stringsAsFactors = F, skip = 6)[,inp_cols]
+  data <- read.csv(paste(Folder, i, sep = "/"), stringsAsFactors = F, skip = 6, check.names = F, encoding = "UTF-8")[,inp_cols]
 
   colnames(data) <- c("Viability", "Cell.No", "Death", "SampleID")
 

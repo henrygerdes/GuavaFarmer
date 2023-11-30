@@ -1,5 +1,3 @@
-
-######################## Normalise guava ####################################################################
 #' @name  normalise_guave
 #' @export normalise_guave
 #' @title  Import values from VIA files

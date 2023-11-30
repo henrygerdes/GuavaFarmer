@@ -22,13 +22,14 @@ Guava_synergy3 <-
       x$Viability <- as.numeric(x$Viability)/100
       x$Cell.No <- as.numeric(x$Cell.No)/100
       x$Death <- as.numeric(x$Death)/100
+
     }else{
       x$Viability <- as.numeric(x$Viability)
       x$Cell.No <- as.numeric(x$Cell.No)
 
     }
 
-    x$Fold <- 1- x$Cell.No
+    x$Fold <- 1 - x$Cell.No
 
     # get list of combinations for analysis - forloop can iterate between them
     combinations <- unique(x$Drug[x$combinations])
@@ -76,7 +77,7 @@ Guava_synergy3 <-
                           Viability_CI = (Viability / (mean_viability.x  * mean_viability.y)),
                            Cell.No_CI = (Cell.No / (mean_cell_no.x  * mean_cell_no.y)),
                           Mort_Bliss = (Death - (mean_Death.x + mean_Death.y - (mean_Death.x * mean_Death.y))),
-                           Fold_bliss = (Death - (mean_fold.x + mean_fold.y - (mean_fold.x* mean_fold.y)))
+                           Fold_bliss = (Fold - (mean_fold.x + mean_fold.y - (mean_fold.x* mean_fold.y)))
                            )
     df_out <-
       df_out[, c(

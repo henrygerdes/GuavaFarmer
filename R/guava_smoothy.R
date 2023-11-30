@@ -11,9 +11,9 @@ GuavaSmoothy <- function(label, filenames, Cell.line = NULL, easyfit = FALSE, an
   require(foreach)
 
   if(easyfit& !annexin){
-    inp_cols <- c("Viable.13", "Viable.14", "Dead.13", "Sample.ID")
+    inp_cols <- c(77, 84, 78, 2)
   }else if (!easyfit & !annexin){
-    inp_cols <- c("Viable.2", "Viable.1", "Dead.2", "Sample.ID")
+    inp_cols <- c(12, 9, 14, 2)
   }else if (easyfit & annexin){
     inp_cols <- c("Viable.2", "Viable.1", "Dead.2", "Sample.ID")
   }else if (!easyfit & annexin){
@@ -23,7 +23,7 @@ GuavaSmoothy <- function(label, filenames, Cell.line = NULL, easyfit = FALSE, an
 
   out <- foreach(i = filenames, .combine = "rbind")%do%{
 
-    data <- read.csv(i, stringsAsFactors = F, skip = 6)[,inp_cols]
+    data <- read.csv(i, stringsAsFactors = F, skip = 6, check.names = F, encoding = "UTF-8")[,inp_cols]
 
     colnames(data) <- c("Viability", "Cell.No", "Death", "SampleID")
 
